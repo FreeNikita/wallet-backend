@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
     res.send("ok")
-})git init
+})
 
 const MONGO_CONNECT = "mongodb+srv://nikita:JaB5sqmHVoyLzfaT@cluster0-boop9.mongodb.net/restAPI?retryWrites=true&w=majority"
 
