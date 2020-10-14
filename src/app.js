@@ -10,7 +10,12 @@ dotenv.config()
 const PORT = process.env.PORT || 3000
 
 const app = express()
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    introspection: true,
+    playground: true,
+});
 server.applyMiddleware({ app });
 
 app.get('/', (req, res) => {
