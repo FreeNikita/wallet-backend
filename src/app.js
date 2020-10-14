@@ -1,11 +1,17 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-// import User from "./modules/user";
+
+// graphQL
+import { ApolloServer } from 'apollo-server-express';
+import { typeDefs, resolvers } from './graphQL';
 
 dotenv.config()
-const app = express()
 const PORT = process.env.PORT || 3000
+
+const app = express()
+const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app });
 
 const listen = async () => {
     try {
@@ -16,9 +22,8 @@ const listen = async () => {
         })
 
         app.listen(PORT, () => {
-            console.log(`The server was run on port ${PORT}`)
+            console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`)
         })
-
     } catch(error) {
         console.log("Error Run Project: ", error )
     }
