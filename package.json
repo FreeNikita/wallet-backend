@@ -2,20 +2,23 @@
   "name": "wallet-backend",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "start": "node -r dotenv/config index.js",
-    "dev": "nodemon index.js"
+    "start": "NODE_ENV=production node .",
+    "dev": "NODE_ENV=development nodemon --exec babel-node index.js",
+    "build": "babel src -d build"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "http-errors": "~1.6.3",
-    "mongoose": "^5.10.9",
-    "morgan": "~1.9.1",
-    "nodemon": "^2.0.4",
-    "pug": "2.0.0-beta11"
+    "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "nodemon": "^2.0.4"
   }
 }
