@@ -13,6 +13,10 @@ const app = express()
 const server = new ApolloServer({ typeDefs, resolvers });
 server.applyMiddleware({ app });
 
+app.get('/', (req, res) => {
+    res.send('ok')
+})
+
 const listen = async () => {
     try {
         await mongoose.connect(process.env.BD_HOST, {
