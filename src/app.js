@@ -3,23 +3,28 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 // graphQL
+import bodyParser from 'body-parser';
 import { ApolloServer } from 'apollo-server-express';
-import { typeDefs, resolvers } from './graphQL';
+import { typeDefs, resolvers, root } from './graphQL';
 
 dotenv.config()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 
 const app = express()
+
 const server = new ApolloServer({
     typeDefs,
     resolvers,
+    // rootValue: root,
     introspection: true,
     playground: true,
+    graphiql: true,
 });
+
 server.applyMiddleware({ app });
 
-app.get('/', (req, res) => {
-    res.send('ok')
+app.get('/*', (req, res) => {
+    res.redirect('/graphql')
 })
 
 const listen = async () => {

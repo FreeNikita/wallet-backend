@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 
-const user = new Schema({
+const userSchema = new Schema({
+    firebase_id: String,
     name: String,
     surname: String,
     email: String,
@@ -14,4 +15,12 @@ const user = new Schema({
     // }
 })
 
-export default model('User', user)
+// userSchema.methods.setUser = async function(id){
+//     // const user = await User.findOne({
+//     //     firebase_id: id
+//     // })
+//
+//     return "test"
+// }
+
+export default model('User', userSchema )
