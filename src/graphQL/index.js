@@ -11,10 +11,19 @@ const typeUSer = `
         email: String,
         createdDate: String
     }
+    
+    type Wallet {
+        id: String,
+        user_id: String,
+        name: String,
+        amount: Int,
+        currency: String,
+        type: String,
+    }
 `
 
 export const typeDefs = gql`
-    ${typeUSer}
+  ${typeUSer}
   ${typeDefsQuery}
   ${typeDefsMutation}
 `;
