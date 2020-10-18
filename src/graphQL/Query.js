@@ -3,7 +3,7 @@ import User from "../modules/user";
 
 export const typeDefsQuery = `
     type Query {
-        setUser(firebase_id: String): User
+        setUser(firebase_id: String!): User
         getAllWallets(user_id: String): [Wallet]
   }
 `
