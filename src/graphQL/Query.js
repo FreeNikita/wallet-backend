@@ -1,13 +1,19 @@
-import { gql } from 'apollo-server-express';
+import Wallet from "./../modules/wallet";
 
 export const typeDefsQuery = `
     type Query {
-        hello: String
-        hello1: String
+        getAllWallets(user_id: String): [Wallet]
   }
 `
 
 export const resolversQuery = {
-    hello: () => 'Hello world!',
-    hello1: () => 'Hello world!',
+    getAllWallets: async (_, params) => {
+        try {
+            const { user_id } = params;
+            return await Wallet.find({user_id})
+        }
+        catch (err) {
+            console.log('getAllWallet: ', err)
+        }
+    }
 }

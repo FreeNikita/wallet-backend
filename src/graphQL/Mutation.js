@@ -50,5 +50,5 @@ export const resolversMutation = {
         } catch (err) {
             console.log('createWallet: ', err)
         }
-    }
+    },
 }

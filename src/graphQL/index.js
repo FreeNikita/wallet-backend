@@ -2,7 +2,7 @@ import { gql } from 'apollo-server-express';
 import {typeDefsQuery, resolversQuery} from './Query'
 import {typeDefsMutation, resolversMutation} from './Mutation'
 
-const typeUSer = `
+const customType = `
     type User {
         id: String,
         firebase_id: String,
@@ -23,7 +23,7 @@ const typeUSer = `
 `
 
 export const typeDefs = gql`
-  ${typeUSer}
+  ${customType}
   ${typeDefsQuery}
   ${typeDefsMutation}
 `;
