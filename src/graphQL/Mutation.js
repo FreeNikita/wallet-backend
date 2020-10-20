@@ -10,6 +10,11 @@ export const typeDefsMutation = `
             currency: String,
             type: String,
         ): Wallet
+        
+        removeWallet(
+            wallet_id: String,
+            user_id: String
+        ): Id
     }
 `
 
@@ -33,4 +38,17 @@ export const resolversMutation = {
             console.log('createWallet: ', err)
         }
     },
+    removeWallet: async (_, params) => {
+        try {
+            const { wallet_id, user_id } = params;
+            await Wallet.findOneAndDelete({
+                _id: wallet_id,
+                user_id
+            })
+
+            return { id: wallet_id }
+        } catch (err) {
+            console.log('removeWallet: ', err)
+        }
+    }
 }

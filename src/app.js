@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 // graphQL
-import bodyParser from 'body-parser';
 import { ApolloServer } from 'apollo-server-express';
 import { typeDefs, resolvers, root } from './graphQL';
 

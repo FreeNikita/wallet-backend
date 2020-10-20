@@ -20,6 +20,10 @@ const customType = `
         currency: String,
         type: String,
     }
+    
+    type Id {
+        id: String,
+    }
 `
 
 export const typeDefs = gql`
