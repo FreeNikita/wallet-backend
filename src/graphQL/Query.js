@@ -5,6 +5,10 @@ export const typeDefsQuery = `
     type Query {
         setUser(firebase_id: String!): User
         getAllWallets(user_id: String): [Wallet]
+        getWallet(
+            user_id: String
+            wallet_id: String
+        ): Wallet
   }
 `
 
@@ -30,6 +34,18 @@ export const resolversQuery = {
         try {
             const { user_id } = params;
             return await Wallet.find({user_id})
+        }
+        catch (err) {
+            console.log('getAllWallet: ', err)
+        }
+    },
+    getWallet: async (_, params) => {
+        try {
+            const { user_id, wallet_id } = params;
+            return await Wallet.findOne({
+                user_id,
+                _id: wallet_id
+            })
         }
         catch (err) {
             console.log('getAllWallet: ', err)
