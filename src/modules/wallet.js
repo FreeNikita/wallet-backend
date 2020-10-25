@@ -14,12 +14,11 @@ const walletSchema = new Schema({
     type: String,
     history: [{
         amount: Number,
-        type: String,
-        categories: String,
-        description: {
-            type: String,
-            default: ''
-        }
+        title: String,
+        category: String,
+        subCategory: String,
+        date: String,
+        description: String,
     }]
 
 

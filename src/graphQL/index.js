@@ -24,6 +24,16 @@ const customType = `
     type Id {
         id: String,
     }
+    
+    type Transaction {
+        id: String
+        name: String
+        amount: Int
+    }
+    
+    type Status {
+        status: String
+    }
 `
 
 export const typeDefs = gql`
