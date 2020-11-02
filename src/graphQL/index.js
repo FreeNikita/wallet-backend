@@ -12,6 +12,16 @@ const customType = `
         createdDate: String
     }
     
+    type History {
+        id: String,
+        amount: Int,
+        title: String,
+        category: String,
+        subCategory: String,
+        date: String,
+        description: String,
+    }
+    
     type Wallet {
         id: String,
         user_id: String,
@@ -19,6 +29,7 @@ const customType = `
         amount: Int,
         currency: String,
         type: String,
+        history: [History]
     }
     
     type Id {
